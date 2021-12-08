@@ -1,5 +1,6 @@
 # pikpak
 pikpak网页客户端 docker部署
+端口:8080
 
 主要解决两个问题:   
 1、ios或者说safari复制地址失败的问题    
