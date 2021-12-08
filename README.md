@@ -2,6 +2,9 @@
 pikpak网页客户端 docker部署   
 端口:8080
 
+https://hub.docker.com/r/ykxvk8yl5l/pikpak
+
+
 主要解决两个问题:   
 1、ios或者说safari复制地址失败的问题    
 2、自定义的菜单的链接类型无法打开  
