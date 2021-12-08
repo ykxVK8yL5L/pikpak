@@ -38,7 +38,7 @@ jobs:
     - name: Run Buildx
       run: |
           docker buildx build . \
-            --platformlinux/amd64 \
+            --platform linux/amd64 \
             --output "type=image,push=true" \
             --file Dockerfile \
             --tag ykxvk8yl5l/pikpak:latest
