@@ -1,4 +1,4 @@
-name: docker-buildx scratch just amd64
+name: docker-buildx-amd64 
 
 on:
   repository_dispatch:
