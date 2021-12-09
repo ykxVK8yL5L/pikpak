@@ -12,4 +12,5 @@ https://hub.docker.com/r/ykxvk8yl5l/pikpak
 服务器方面用go的gin框架
 Docker部署 镜像很小
 
-源码来自:https://github.com/mumuchenchen/pikpak
+源码来自:https://github.com/mumuchenchen/pikpak  
+跟原版比只修改了list.vue文件  所以就只上传它了
