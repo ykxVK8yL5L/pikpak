@@ -4,6 +4,8 @@ pikpak网页客户端 docker部署
 
 https://hub.docker.com/r/ykxvk8yl5l/pikpak
 
+视频演示:https://youtu.be/rKTJ6HtXKec  
+
 
 主要解决两个问题:   
 1、ios或者说safari复制地址失败的问题    
