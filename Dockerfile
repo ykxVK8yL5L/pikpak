@@ -7,7 +7,7 @@ RUN xz -d -c /usr/local/upx-3.95-amd64_linux.tar.xz | tar -xOf - upx-3.95-amd64_
 WORKDIR /go/src/app
 COPY ./ /go/src/app
 RUN go mod vendor
-RUN CGO_ENABLED=0 GOOS=linux go build --ldflags "-extldflags -static" -a -installsuffix cgo -o app .
+RUN CGO_ENABLED=0 GOOS=linux go build --ldflags "-s -w -extldflags -static" -a -installsuffix cgo -o app .
 RUN strip --strip-unneeded app
 RUN upx app
 
