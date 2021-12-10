@@ -153,9 +153,6 @@
     </n-modal>
 
 
-
-
-///修改开始
 <n-modal v-model:show="showCopy">
       <n-card style="width: 600px;" title="拷贝内容">
         <template #header-extra>
@@ -171,7 +168,7 @@
         </template>
       </n-card>
 </n-modal>
-///修改结束
+
 
 
 
@@ -386,6 +383,11 @@ import axios from 'axios';
                 case 'batchMove':
                   batchMove([row.id])
                   break
+                ///修改 newblank
+                case 'newblank':
+                  window.open(window.location.origin + window.location.pathname+"#list/"+row.id,"_blank");
+                  break
+
                 case 'down':
                   downFile(row.id)
                   break
@@ -428,14 +430,13 @@ import axios from 'axios';
                   sharePikPakUrl.value = ''
                   showSharePikPak.value = true
                   break
-                ///修改开始
                 case 'openVLC':
                    getFile(row.id)
                         .then((res:any) => {
                            if(row.mime_type.indexOf('video') != -1 || row.mime_type.indexOf('audio') != -1) {
                                   let group : VNode[] = [];
                                   for (let i = 0; i < res.data.medias.length; i++) {
-                                    group.push(h('div', h('a', {'style':'color: rgb(48, 110, 255)','target':'_blank','href':res.data.medias[i].link.url,'text':res.data.medias[i].media_name})));
+                                    group.push(h('div', h('a', {'style':'color: rgb(48, 110, 255)','target':'_blank','href':'vlc://'+res.data.medias[i].link.url,'text':res.data.medias[i].media_name})));
                                   }
                                   dialog.info({
                                       title: '自定义操作',
@@ -451,7 +452,6 @@ import axios from 'axios';
                                   return
                             }
                         })
-                ///修改结束
                 default:
                   if(key.indexOf('user') !== -1) {
                     const userMenuKey = Number(key.replace('user-', ''))
@@ -468,7 +468,7 @@ import axios from 'axios';
 
                           if(keyMenu.type === 'a') {
                             //window.open(render(keyMenu.content), '_target')
-                              ///修改开始
+
                               if(row.mime_type.indexOf('video') != -1 || row.mime_type.indexOf('audio') != -1) {
                                   let group : VNode[] = [];
                                   for (let i = 0; i < res.data.medias.length; i++) {
@@ -489,7 +489,6 @@ import axios from 'axios';
                                 content: () =>h('a',{'style':'color: rgb(48, 110, 255)','target':'_blank','href':render(keyMenu.content),'text':render(keyMenu.name)}),
                                 negativeText: '关闭'
                               })
-                              ///修改结束
                           } else if(keyMenu.type === 'copy') {
                             copy(render(keyMenu.content))
                           }
@@ -704,7 +703,7 @@ import axios from 'axios';
   }
   const copy = (value:string) => {
     nextTick(() => {
-      ///修改开始
+
       showCopy.value = true
       copyValue.value = value
 
@@ -722,7 +721,7 @@ import axios from 'axios';
         console.log(e.text)
       })
       //fakeElement.click()
-      ///修改结束
+
     })
   }
   const copyAll = async () => {
@@ -978,9 +977,9 @@ import axios from 'axios';
   }
 
  
-  const showName = ref(false)    
-  const copyValue = ref<string>('hello') // 修改
-  const showCopy = ref(false) ///修改
+  const showName = ref(false)
+  const copyValue = ref<string>('hello') // foo's type: Ref<string | number>
+  const showCopy = ref(false)
 
   const newName = ref<{
     id: string,
@@ -1086,6 +1085,11 @@ import axios from 'axios';
         key: 'batchMove',
       },
       {
+        label: '新窗口打开',
+        key: 'newblank',
+        disabled: row.kind !== 'drive#folder'
+      },
+      {
         label: '直接下载',
         key: 'down',
         disabled: row.size <= 0
@@ -1125,7 +1129,7 @@ import axios from 'axios';
         disabled: row.kind === 'drive#folder'
       },
       {
-        label: 'VLC打开', ///修改添加
+        label: 'VLC打开',
         key: 'openVLC',
         disabled: row.kind === 'drive#folder'
       },
