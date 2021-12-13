@@ -13,5 +13,6 @@ RUN upx app
 
 FROM scratch
 WORKDIR /root/
+COPY ./dist /root/dist
 COPY --from=builder /go/src/app/app ./
 CMD ["./app"]
