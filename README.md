@@ -1,5 +1,5 @@
 # pikpak
-pikpak网页客户端 docker部署   及kodi插件   
+pikpak网页客户端 docker部署   及kodi插件(kodi版目前用的是直连)    
 端口:8080
 
 https://hub.docker.com/r/ykxvk8yl5l/pikpak
