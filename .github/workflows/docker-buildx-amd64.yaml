@@ -41,4 +41,4 @@ jobs:
             --platform linux/amd64 \
             --output "type=image,push=true" \
             --file Dockerfile \
-            --tag ykxvk8yl5l/pikpak:latest
+            --tag ykxvk8yl5l/pikpak:test
