@@ -6,6 +6,7 @@ https://hub.docker.com/r/ykxvk8yl5l/pikpak
 
 视频演示:https://youtu.be/rKTJ6HtXKec  
 
+# 如不能登录 就是配置里代理失效 需要走流量登录后设置里修改为可用代理
 
 主要解决三个问题:   
 1、ios或者说safari复制地址失败的问题    
