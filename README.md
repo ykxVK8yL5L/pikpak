@@ -1,3 +1,6 @@
+# 已经不能用了  官方登陆接口变更。可以关注 https://github.com/ykxVK8yL5L/fastwebdav_deta
+
+
 # pikpak
 pikpak网页客户端 docker部署   及kodi插件(kodi版目前用的是直连)    
 端口:8080
