@@ -50,13 +50,20 @@ addEventListener('fetch', event => {
   
             //保留头部其它信息
             let he = reqHeaders.entries();
+
             const requrl = new URL(url);
-            if(requrl.hostname=='api-pan.xunleix.com'){
+
+            //requrl.hostname=='api-pan.xunleix.com'
+            //requrl.hostname.includes('.xunleix.com')
+            if(requrl.hostname.includes('.xunleix.com')){
                 for (let h of he) {
-                    if (!['content-length','cf-ipcountry','x-real-ip','cf-connecting-ip','server'].includes(h[0])) {
-                        fp.headers[h[0]] = h[1];
+                    if (!['content-length', 'cf-ipcountry', 'x-real-ip', 'cf-connecting-ip', 'server'].includes(h[0])) {
+                        fp.headers[h[0]] = h[1]; // 其他头部正常添加
                     }
                 }
+
+                fp.headers["User-Agent"] = 'AndroidDownloadManager/12 (Linux; U; Android 12; M2004J7AC Build/SP1A.210812.016)'; 
+
             }else{
                 for (let h of he) {
                     if (!['content-length'].includes(h[0])) {
