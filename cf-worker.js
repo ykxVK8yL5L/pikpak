@@ -53,22 +53,7 @@ addEventListener('fetch', event => {
 
             const requrl = new URL(url);
 
-            // if(requrl.hostname.includes('.xunleix.com')){
-            //     for (let h of he) {
-            //         if (!['content-length', 'cf-ipcountry', 'x-real-ip', 'cf-connecting-ip', 'server'].includes(h[0])) {
-            //             fp.headers[h[0]] = h[1]; // 其他头部正常添加
-            //         }
-            //     }
-            //     fp.headers["User-Agent"] = 'AndroidDownloadManager/12 (Linux; U; Android 12; M2004J7AC Build/SP1A.210812.016)'; 
-            // }else{
-            //     for (let h of he) {
-            //         if (!['content-length'].includes(h[0])) {
-            //             fp.headers[h[0]] = h[1];
-            //         }
-            //     }
-            // }
-
-            if(requrl.hostname=='api-pan.xunleix.com'){
+            if(requrl.hostname.endsWith('.xunleix.com')){
                 for (let h of he) {
                     if (!['content-length', 'cf-ipcountry', 'x-real-ip', 'cf-connecting-ip', 'server'].includes(h[0])) {
                         fp.headers[h[0]] = h[1]; // 其他头部正常添加
@@ -81,6 +66,23 @@ addEventListener('fetch', event => {
                     }
                 }
             }
+
+            //endsWith('.xunleix.com') 代理所有xunleix内容
+
+            
+            // if(requrl.hostname=='api-pan.xunleix.com'){
+            //     for (let h of he) {
+            //         if (!['content-length', 'cf-ipcountry', 'x-real-ip', 'cf-connecting-ip', 'server'].includes(h[0])) {
+            //             fp.headers[h[0]] = h[1]; // 其他头部正常添加
+            //         }
+            //     }
+            // }else{
+            //     for (let h of he) {
+            //         if (!['content-length'].includes(h[0])) {
+            //             fp.headers[h[0]] = h[1];
+            //         }
+            //     }
+            // }
 
             // 是否带 body
             if (["POST", "PUT", "PATCH", "DELETE"].indexOf(request.method) >= 0) {
