@@ -1,5 +1,6 @@
 # 已经不能用了  官方登陆接口变更。可以关注 https://github.com/ykxVK8yL5L/fastwebdav_deta
-
+# 关于反代_worker.js为pages的源码，可直接使用pages.zip上传即可
+# cf-worker.js为worker的代码，部署的时候粘贴进云就行了
 
 # pikpak
 pikpak网页客户端 docker部署   及kodi插件(kodi版目前用的是直连)    
